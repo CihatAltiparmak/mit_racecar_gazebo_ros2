@@ -5,10 +5,14 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
+from launch.actions import SetEnvironmentVariable
+
 
 def generate_launch_description():
     pkg_share = FindPackageShare(package='mit_racecar_description').find('mit_racecar_description')
     urdf_file = os.path.join(pkg_share, 'urdf/racecar.xacro')
+
+    gazebo_env = SetEnvironmentVariable("GAZEBO_MODEL_PATH", pkg_share)
 
     return LaunchDescription([
         DeclareLaunchArgument('start_x', default_value='0.0', description='X coordinate of starting position'),
@@ -34,7 +38,8 @@ def generate_launch_description():
                 '-x', LaunchConfiguration('start_x'),
                 '-y', LaunchConfiguration('start_y'),
                 '-z', LaunchConfiguration('start_z'),
-                '-Y', LaunchConfiguration('start_yaw')
+                '-Y', LaunchConfiguration('start_yaw'),
+                '-timeout', '1000'
             ],
             output='screen')
     ])

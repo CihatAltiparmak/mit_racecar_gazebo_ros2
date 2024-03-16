@@ -10,7 +10,8 @@ def generate_launch_description():
 
     gazebo_world_path = os.path.join(get_package_share_directory('mit_racecar_gazebo'), 'worlds', 'racecar.world')
     gazebo_options_dict = dict(
-        world = gazebo_world_path
+        world = gazebo_world_path,
+        verbose = "true"
     )
 
     gazebo_simulator = IncludeLaunchDescription(
