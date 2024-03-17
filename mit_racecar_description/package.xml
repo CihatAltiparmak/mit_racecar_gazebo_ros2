@@ -3,11 +3,15 @@
 <package format="3">
   <name>mit_racecar_description</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="cihataltiparmak1@gmail.com">cihat</maintainer>
-  <license>TODO: License declaration</license>
+  <description>MIT racecar simulator project on ros2 humble</description>
+  <maintainer email="cihataltiparmak1@gmail.com">Cihat Kurtuluş Altıparmak</maintainer>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
